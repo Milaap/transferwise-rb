@@ -20,8 +20,7 @@ require 'transfer_wise/util'
 require 'transfer_wise/request'
 
 # Errors
-require 'transfer_wise/errors/transfer_wise_error'
-require 'transfer_wise/errors/api_error'
+require 'transfer_wise/transfer_wise_error'
 
 module TransferWise
 

@@ -2,8 +2,8 @@ module TransferWise
   class OAuth
     attr_accessor :access_token
 
-    def initialize(client_id, client_secret, site_url)
-      @client_id, @client_secret, @site_url = client_id, client_secret, site_url
+    def initialize(client_id, client_secret)
+      @client_id, @client_secret = client_id, client_secret
     end
 
     # Get the OAuth 2 client
@@ -11,7 +11,7 @@ module TransferWise
       @client ||= ::OAuth2::Client.new(
         @client_id,
         @client_secret,
-        { site: @site_url,
+        { site: TransferWise.api_base,
           auth_scheme: :basic_auth
         }
       )

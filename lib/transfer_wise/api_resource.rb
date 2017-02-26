@@ -1,5 +1,6 @@
 module TransferWise
   class APIResource
+    include TransferWise::TransferWiseObject
 
     def self.class_name
       self.name.split('::')[-1]
@@ -13,7 +14,8 @@ module TransferWise
     end
 
     def self.create(params={}, opts={})
-      TransferWise::Request.request(:post, resource_url, params, opts)
+      response = TransferWise::Request.request(:post, resource_url, params, opts)
+      convert_to_transfer_wise_object(response)
     end
 
   end

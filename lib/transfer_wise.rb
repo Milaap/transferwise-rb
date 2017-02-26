@@ -11,6 +11,7 @@ require "transfer_wise/version"
 require "transfer_wise/oauth"
 
 # Resources
+require 'transfer_wise/transfer_wise_object'
 require 'transfer_wise/api_resource'
 require 'transfer_wise/quote'
 require 'transfer_wise/account'

@@ -24,10 +24,11 @@ require 'transfer_wise/errors/api_error'
 
 module TransferWise
 
-  @api_base = "https://#{Rails.env.production? ? 'api' : 'test-restgw'}.transferwise.com"
-
   class << self
-    attr_accessor :api_base
-  end
+    attr_accessor :mode
 
+    def api_base
+      @api_base ||= "https://#{mode == 'live' ? 'api' : 'test-restgw'}.transferwise.com"
+    end
+  end
 end

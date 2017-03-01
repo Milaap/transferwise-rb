@@ -25,7 +25,7 @@ module TransferWise
 
     # Get the access token. You must pass the exact same redirect_url passed
     # to the authorize_url method
-    def get_access_token_from_code(code, redirect_url)
+    def get_access_token(code, redirect_url)
       @access_token ||= client.auth_code.get_token(code, redirect_uri: redirect_url)
     end
 

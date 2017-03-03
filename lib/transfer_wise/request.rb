@@ -46,7 +46,7 @@ module TransferWise
       rescue JSON::ParserError
         raise handle_parse_error(response.code, response.body)
       end
-      Util.indifferent_access(response)
+      response
     end
 
     def self.handle_error(e, request_opts)

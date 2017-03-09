@@ -58,8 +58,8 @@ module TransferWise
     end
 
     def self.handle_api_error(resp)
-      error_obj = parse(resp)
-      error_message = error_obj[:error].presence || error_obj['errors'].map{|e| e["message"]}.join(', ')
+      error_obj = parse(resp).with_indifferent_access
+      error_message = error_obj['error'].presence || error_obj['errors'].map{|e| e["message"]}.join(', ')
       if TransferWise::STATUS_CLASS_MAPPING.include?(resp.code)
         raise "TransferWise::#{TransferWise::STATUS_CLASS_MAPPING[resp.code]}".constantize.new(error_params(error_message, resp, error_obj))
       else

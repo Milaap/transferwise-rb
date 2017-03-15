@@ -27,6 +27,7 @@ module TransferWise
 
   class << self
     attr_accessor :mode
+    attr_accessor :access_token
 
     def api_base
       @api_base ||= "https://#{mode == 'live' ? 'api' : 'test-restgw'}.transferwise.com"

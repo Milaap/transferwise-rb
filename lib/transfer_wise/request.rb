@@ -7,7 +7,7 @@ module TransferWise
 
     def self.request(method, url, params={}, headers={})
       url = api_url(url)
-      access_token = headers.delete(:access_token)
+      access_token = headers.delete(:access_token) || TransferWise.access_token
       request_opts = {
         url: url,
         method: method,

@@ -30,7 +30,7 @@ module TransferWise
     attr_accessor :access_token
 
     def api_base
-      @api_base ||= "https://#{mode == 'live' ? 'api' : 'test-restgw'}.transferwise.com"
+      @api_base ||= "https://#{mode == 'live' ? 'api' : 'test-api'}.transferwise.com"
     end
   end
 end

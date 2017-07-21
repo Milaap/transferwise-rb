@@ -136,6 +136,7 @@ account = TransferWise::Account.create(account_request, {access_token: access_to
 Create a transfer
 ```ruby
 transfer_request = {
+  "customerTransactionId" => "d57db29d-1060-4ce8-bd5e-800edaf982a9", # some unique uuid format number to identify the transfer.
   "targetAccount" => account.id,
   "quote" => quote.id,
   "details" => {

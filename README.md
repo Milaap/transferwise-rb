@@ -147,4 +147,61 @@ transfer = TransferWise::Transfer.create(transfer_request, {access_token: access
 
 ```
 
-Transfer object is created in transfer wise website. You can go there and make payments to complete the transfer.
+The Transfer object is created via the TransferWise website. You can go there and make payments to complete the transfer.
+
+# TransferWise Borderless Account
+A Borderless Account is a "virtual" bank account that you can control via the TransferWise API, to send funds to external bank accounts (across borders), as well as download statements and view the current balance.
+
+## Borderless Accounts
+https://api-docs.transferwise.com/v1/borderless-account/search-account-by-user-profile
+
+Get all the borderless accounts given a `profileId`
+
+```ruby
+account_request = { profileId: 1234567 }
+account = TransferWise::BorderlessAccount.list(nil, { 'params' => account_request })
+```
+
+## Borderless Account
+https://api-docs.transferwise.com/v1/borderless-account/get-available-balances
+
+Get a borderless account given a `borderlessAccountId`
+
+```ruby
+borderlessAccountId = 123
+account = TransferWise::BorderlessAccount.get(borderlessAccountId)
+```
+
+## Transactions
+https://api-docs.transferwise.com/v1/borderless-account/get-account-statement
+
+Get all the transactions for an account given a `borderlessAccountId`
+
+```ruby
+borderlessAccountId = 123
+transactions = TransferWise::BorderlessAccount::Transaction.list(nil, { 'params' => { page: '5' } }, resource_id: borderlessAccountId)
+```
+
+## Statement
+https://api-docs.transferwise.com/v1/borderless-account/get-statement
+
+Get a borderless account statement for a given currency
+
+```ruby
+query_string = {
+  profileId: 1234567,
+  currency: 'GBP',
+  startDate: '2017-12-01',
+  endDate: '2017-12-07'
+}
+statement = TransferWise::BorderlessAccount::Statement.list(nil, { 'params' => query_string })
+```
+
+## Currencies
+https://api-docs.transferwise.com/v1/borderless-account/available-currencies
+
+Get a list of available currencies for your balances
+
+```ruby
+TransferWise::BorderlessAccount::BalanceCurrency.list
+```

@@ -19,6 +19,10 @@ require 'transfer_wise/account'
 require 'transfer_wise/transfer'
 require 'transfer_wise/util'
 require 'transfer_wise/request'
+require 'transfer_wise/borderless_account'
+require 'transfer_wise/borderless_account/balance_currency'
+require 'transfer_wise/borderless_account/statement'
+require 'transfer_wise/borderless_account/transaction'
 
 # Errors
 require 'transfer_wise/transfer_wise_error'

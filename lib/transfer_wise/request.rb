@@ -1,6 +1,5 @@
 module TransferWise
   class Request
-
     def self.api_url(url = '')
       TransferWise.api_base + url
     end
@@ -100,6 +99,5 @@ module TransferWise
         http_headers: resp.headers
       }
     end
-
   end
 end

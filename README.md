@@ -152,6 +152,13 @@ The Transfer object is created via the TransferWise website. You can go there an
 # TransferWise Borderless Account
 A Borderless Account is a "virtual" bank account that you can control via the TransferWise API, to send funds to external bank accounts (across borders), as well as download statements and view the current balance.
 
+
+## Fund your transfer from your borderless account available balance.
+
+```ruby
+transfer = TransferWise::Transfer.fund(transfer.id, { type: 'BALANCE' })
+```
+
 ## Borderless Accounts
 https://api-docs.transferwise.com/v1/borderless-account/search-account-by-user-profile
 

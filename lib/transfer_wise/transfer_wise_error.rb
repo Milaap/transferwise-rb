@@ -3,7 +3,8 @@ module TransferWise
   STATUS_CLASS_MAPPING = {
     400 => "InvalidRequestError",
     404 => "InvalidRequestError",
-    401 => "AuthenticationError"
+    401 => "AuthenticationError",
+    409 => "InvalidRequestError"
   }
 
   class TransferWiseError < StandardError
@@ -35,5 +36,4 @@ module TransferWise
 
   class ParseError < TransferWiseError
   end
-
 end
